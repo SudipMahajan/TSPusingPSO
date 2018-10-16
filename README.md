@@ -7,7 +7,8 @@ https://www.researchgate.net/publication/279948232_Velocity_Tentative_PSO_An_Opt
 It is essential to read following paper for understanding first application of PSO for solving TSP Problem:
 https://www.researchgate.net/publication/4052712_Particle_swarm_optimization_for_traveling_salesman_problem
 
-'TSPusingsspso.py' is the python implementation file or front end. All functions and TSP graph are implemented in the user-defined module
+'TSPusingsspso.py' is main python implementation file which needs to be run.
+All functions and TSP graph are implemented in the user-defined module
 'psofortspmodule.py' which is imported in 'TSPusingsspso.py'
 
 TSP problem is initialized for 10 cities, with an optimum tour cost of 43.
