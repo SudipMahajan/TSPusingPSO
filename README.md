@@ -10,4 +10,6 @@ https://www.researchgate.net/publication/4052712_Particle_swarm_optimization_for
 'TSPusingsspso.py' is the python implementation file or front end. All functions and TSP graph are implemented in the user-defined module
 'psofortspmodule.py' which is imported in 'TSPusingsspso.py'
 
+TSP problem is initialized for 10 cities, with an optimum tour cost of 43.
+
 Code implemented and maintained by Sudip Mahajan; email: sudipcmahajan@gmail.com
