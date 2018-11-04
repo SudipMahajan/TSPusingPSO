@@ -125,8 +125,11 @@ def partialsearch(tourpos, vel):
 	return min_cost_tour,min_cost
 
 def sanity_check(particle):
+
 	if ( particle["bestcost"] >  particle["currcost"] ) :
-		particle["bestpos"], particle["bestcost"] = particle["currpos"], particle["currcost"]
+		# swap current and best position
+		particle["bestpos"], particle["currpos"] = particle["currpos"],particle["bestpos"]
+
+		# swap current and best costs
+		particle["bestcost"], particle["currcost"] = particle["currcost"], particle["bestcost"]
 	return particle
-
-
