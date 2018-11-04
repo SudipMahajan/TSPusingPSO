@@ -62,7 +62,7 @@ for iter in range(n_iter):
 			particle["bestpos"] = particle["currpos"]
 		particle["bestcost"] = PSO.calcTourCost( particle["bestpos"] )
 
-		particle = PSO.sanity_check(particle)                                                  # additional cross checking code
+		particle = PSO.sanity_check(particle)                 # additional cross checking code
 
 		assert ( particle["bestcost"] == PSO.calcTourCost( particle["bestpos"] ) ),particle    # cross checking code
 		assert ( particle["bestcost"] <= particle["currcost"] ),particle                       # cross checking code
