@@ -60,9 +60,12 @@ def SS(tlist,SOlist):
 def initializeparticles(n_particles):
 	'''
 	Each particle is a potential solution in the form of a tuple of 3 lists.
-	The 1st included list is for position (a tour around the cities)
-	The 2nd list is for velocity (Swap Sequence)i.e. list of tuples
-	The 3rd included list is for best tour sequence achived by that particle in all previous iterations.
+	A particle is vivualized as a dictionary consiting of following fields
+	"currpos": list for current iteration position (a tour around the cities)
+	"currcost": current position cost of particle 
+	"vel": velocity (Swap Sequence) i.e. list of swap tuples
+	"bestpos": tour list of best position attained by the particle in all previous iterations
+	"bestcost": best tour cost for the particle
 	'''
 	n_cities = len(graphofcities[0])
 	print ("Number of cities:",n_cities)
@@ -74,7 +77,9 @@ def initializeparticles(n_particles):
 		vel = []
 		for i in range(4):                                    # initialize random velocity sequence for every particle
 			vel.append( (rm.choice(range(0,n_cities)), rm.choice(range(0,n_cities)) ) )
-		listofparticles.append( {"currpos":pos,"currcost":calcTourCost(pos),"vel":vel,"bestpos":bestpos,"bestcost":calcTourCost(bestpos) } )
+		# formulate the dictionary of initialized particle
+		particle = {"currpos":pos,"currcost":calcTourCost(pos),"vel":vel,"bestpos":bestpos,"bestcost":calcTourCost(bestpos) }
+		listofparticles.append( particle)
 	return listofparticles
 
 
@@ -82,7 +87,6 @@ def displayparticles(listofparticles):
 	for i in range(len(listofparticles)):
 		print ("\nParticle ",i,": Position:",listofparticles[i]["currpos"], "current tour cost:",listofparticles[i]["currcost"],"\nTour Best:",listofparticles[i]["bestpos"], "Cost of Tour Best:", listofparticles[i]["bestcost"])
 
-	return
 
 def tourpositionsubtract(tourpos1, tourpos2):
 	'''
@@ -101,6 +105,7 @@ def tourpositionsubtract(tourpos1, tourpos2):
 	return toursubtractSS
 
 def computeG(listofparticles):
+	# returns dictionary of Best tour and cost found amongst all particles
 	seq = [ (x["bestpos"],x["bestcost"]) for x in listofparticles ] 
 	tour, cost = min( seq, key = lambda t:t[1] )
 	Best = {"tour":tour,"cost":cost}
@@ -133,3 +138,5 @@ def sanity_check(particle):
 		# swap current and best costs
 		particle["bestcost"], particle["currcost"] = particle["currcost"], particle["bestcost"]
 	return particle
+
+
