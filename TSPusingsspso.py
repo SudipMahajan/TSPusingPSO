@@ -15,11 +15,12 @@ print ("TSP graph created...")
 
 listofparticles = PSO.initializeparticles(n_particles = 5)
 print ("Particles initialized to compute TSP tour")
+
 # PSO.displayparticles(listofparticles)
 GlobalBest = PSO.computeG(listofparticles)
 print ("\n ******Initial Global Best tour:",GlobalBest["tour"], ",with cost :",GlobalBest["cost"],"****** \n")
 
-n_iter = 10
+n_iter = 5
 
 ## STEP 2
 for iter in range(n_iter):
@@ -69,7 +70,7 @@ for iter in range(n_iter):
     # inner FOR loop ends, updating particle postions and velocities is over
 
 	PSO.displayparticles(listofparticles)
-	iterglobal =  PSO.computeG(listofparticles)
+	iterglobal =  PSO.computeG(listofparticles)  # best tour found in current iteration
 	print ( "\n** Global Best Tour:",GlobalBest["tour"],"with Cost:",GlobalBest["cost"] )
 	assert ( iterglobal["cost"] == PSO.calcTourCost( iterglobal["tour"] ))    # cross checking code
 
