@@ -1,5 +1,5 @@
 import random as rm
-
+import graph as G
 
 # Initialize graph of cities as adjacency matrix
 '''
@@ -11,7 +11,7 @@ graphofcities = [[0, 2, 2, 5, 7],
                  # Optimum tour: 0-1-4-3-2-0 cost: 9
 
 '''
-
+'''
 graphofcities = [[0, 10, 24,  7,  6, 12, 12,  9, 23,  1],
                  [10, 0, 17, 12,  5, 14,  7, 22,  2, 24],
                  [24, 17, 0, 23, 23,  4,  7, 19, 20, 25],
@@ -23,7 +23,9 @@ graphofcities = [[0, 10, 24,  7,  6, 12, 12,  9, 23,  1],
                  [23,  2, 20,  2,  2, 14,  7, 10, 0, 15],
                  [ 1, 24, 25,  7,  6, 20,  5,  2, 15, 0]]
                  # optimum tour cost: 43
+'''
 
+graphofcities = G.graph
 
 def calcTourCost(toursequence):
 	tourcost = 0
@@ -138,5 +140,4 @@ def sanity_check(particle):
 		# swap current and best costs
 		particle["bestcost"], particle["currcost"] = particle["currcost"], particle["bestcost"]
 	return particle
-
 
