@@ -1,5 +1,5 @@
 import random as rm
-import graph as G
+import cities29 as G
 
 # Initialize graph of cities as adjacency matrix
 '''
@@ -23,11 +23,13 @@ graphofcities = [[0, 10, 24,  7,  6, 12, 12,  9, 23,  1],
                  [23,  2, 20,  2,  2, 14,  7, 10, 0, 15],
                  [ 1, 24, 25,  7,  6, 20,  5,  2, 15, 0]]
                  # optimum tour cost: 43
+
 '''
 
 graphofcities = G.graph
 
 def calcTourCost(toursequence):
+
 	tourcost = 0
 
 	for i in range(len(toursequence)-1):
@@ -116,10 +118,11 @@ def computeG(listofparticles):
 
 
 def partialsearch(tourpos, vel):
-	min_cost = 1000
+	# check this function
+
+	min_cost = 10000000000000000000  # arbitrarily large number for comparison to find minimum cost tour after applying velocities
 	cost = 0
 	min_cost_tour = []
-
 
 	for i in vel:
 		#print ("Applying operator",i)
@@ -131,6 +134,7 @@ def partialsearch(tourpos, vel):
 
 	return min_cost_tour,min_cost
 
+
 def sanity_check(particle):
 
 	if ( particle["bestcost"] >  particle["currcost"] ) :
@@ -140,4 +144,5 @@ def sanity_check(particle):
 		# swap current and best costs
 		particle["bestcost"], particle["currcost"] = particle["currcost"], particle["bestcost"]
 	return particle
+
 
