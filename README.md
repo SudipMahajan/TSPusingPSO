@@ -1,5 +1,8 @@
 # TSPusingPSO
 This repository contains an implementation of Particle Swarm Optimization to solve Traveling Salesman Problem.
+Requirements:
+1. Python 3.X
+2. NumPy package
 
 The PSO variant used in code is Velocity-Tentative PSO presented in the following paper:
 https://www.researchgate.net/publication/279948232_Velocity_Tentative_PSO_An_Optimal_Velocity_Implementation_based_Particle_Swarm_Optimization_to_Solve_Traveling_Salesman_Problem
