@@ -1,5 +1,6 @@
 import random as rm
 import cities29 as G
+# import cities14 as G
 
 # Initialize graph of cities as adjacency matrix
 '''
